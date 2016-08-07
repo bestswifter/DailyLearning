@@ -2,6 +2,39 @@
 
 ### 2016.8.9
 
+#### Nodejs 设计思想
+
+Nodejs 是一个单线程的执行环境，依赖于事件异步 I/O 机制，这要求我们在编程的过程中需要主义思想的转变。
+
+我们首先可以创建路由模块，根据不同的访问路径调用不同的处理模块。但是在路由分发时必须注意使用异步回调，不能让子模块返回处理结果给路由模块，否则会造成线程阻塞。正确的做法是把 `request` 和 `response` 对象发给对应的处理模块，然后由他们去处理。
+
+#### 表单提交图片
+
+```html
+<form action="demo_form.asp">
+  Select Image: <input type="file" name="upload_image"><br>
+  Submit: <input type="submit" value="Submit">
+</form>
+```
+
+首先放在表单标签中，`action` 属性表示提交地址，还可以指定以 GET 还是 POST 提交。
+
+第一行表示要提交一个文件，这里千万要设置 `name` 属性，只有设置了这个属性，内容才会被提交。Server 端依赖于这个属性获取信息。
+
+第二行表示提交按钮。
+
+在 Nodejs 中可以使用 `formidable` 这个库：
+
+```js
+var form = new formidable.IncomingForm();
+form.parse(request, function (error, fields, files)  {
+  console.log(files.upload_image.path);
+  fs.renameSync(files.upload_image.path, "/tmp/test.png"); // 重命名
+});
+```
+
+这里 `files` 表示提交的文件，其中的 `upload_image` 就是 HTML 当时设置的 name 属性。两者需要对应
+
 #### NodeJs 初印象
 
 利用 V8 引擎提供了 JavaScript 的运行环境，用于后台开发。用法上类似于 PHP、Python 实现动态网页。
