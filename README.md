@@ -1,5 +1,8 @@
 # 我的前端学习笔记
-### 2016.8.8
+
+记录小白学习前端的过程，如有错误，万望指正，感激不尽。
+
+## 2016.8.8
 
 ### Span 标签
 
@@ -9,7 +12,7 @@ span 标签用来为行内元素提供格式，它单独使用没有任何效果
 <p>My name is <span class="name">bestswifter</span>.</p>
 ```
 
-#### CSS 选择器
+### CSS 选择器
 
 利用 CSS 文件可以对 HTML 代码进行精确的样式控制。最基础的两种写法如下:
 
@@ -51,7 +54,7 @@ a[target="_blank"] { } /* 用来对所有具有属性 target 且值为 _blank �
 
 中括号可以不依赖于选择器单独存在，表示一种通配，其中的内容也比较多，详见 [CSS 属性选择器详解](http://www.w3school.com.cn/css/css_selector_attribute.asp)。
 
-#### 用命令行进行搜索
+### 用命令行进行搜索
 
 `grep` 用来搜索文件中的指定内容。基本语法如下:
 
@@ -77,15 +80,15 @@ grep '<content>'  <serach_path>
 3. 指定关键字为“init”的所有提交：$ git log --grep=init
 4. 如指定提交者为"Jack"的所有提交：$ git log --committer=Jack
 
-#### npm 安装
+### npm 安装
 
 运行 `npm install` 进行本地安装之前，首先需要执行 `npm init`，它会引导我们生成一个 `package.json` 文件，这个文件中可以指定我们工程的 git 地址，项目依赖等信息。所以在发布的过程中，并不需要提交 `node_modules` 文件夹中的内容，别人下载下来后运行 `npm init` 即可。
 
 为了实现这一点，我们在安装第三方 package 时需要加上 `--save` 参数，表示把依赖关系写入到 `package.json` 文件中去。
 
-### 2016.8.7
+## 2016.8.7
 
-#### Nodejs 入门
+### Nodejs 入门
 
 阅读完了 《Nodejs 入门》这本书，非常适合新手，主要讲解了路由、模块，非阻塞调用，Nodejs 服务端等基础内容。
 
@@ -95,13 +98,13 @@ npm 是一个强大的包管理机制，所谓的包，也叫 package 或者 mod
 
 本地安装后会在当前目录生成 `node_modules` 文件夹，`package.json` 文件用来描述包的配置，类似于 Cocoapods 中的 Podfile 文件，可以指定安装版本号等信息。
 
-#### Nodejs 设计思想
+### Nodejs 设计思想
 
 Nodejs 是一个单线程的执行环境，依赖于事件异步 I/O 机制，这要求我们在编程的过程中需要主义思想的转变。
 
 我们首先可以创建路由模块，根据不同的访问路径调用不同的处理模块。但是在路由分发时必须注意使用异步回调，不能让子模块返回处理结果给路由模块，否则会造成线程阻塞。正确的做法是把 `request` 和 `response` 对象发给对应的处理模块，然后由他们去处理。
 
-#### 表单提交图片
+### 表单提交图片
 
 ```html
 <form action="demo_form.asp">
@@ -128,7 +131,7 @@ form.parse(request, function (error, fields, files)  {
 
 这里 `files` 表示提交的文件，其中的 `upload_image` 就是 HTML 当时设置的 name 属性。两者需要对应
 
-#### NodeJs 初印象
+### NodeJs 初印象
 
 利用 V8 引擎提供了 JavaScript 的运行环境，用于后台开发。用法上类似于 PHP、Python 实现动态网页。
 
@@ -145,13 +148,13 @@ var 模块名= require("模块路径")
 模块名.方法名()
 ```
 
-### 2016.8.6
+## 2016.8.6
 
-#### JavaScript 对象
+### JavaScript 对象
 
 在JavaScript中，对象就是一个键/ 值对的集合 -- 你可以把JavaScript的对象想象成一个键为字符串类型的字典。JS 对象的方法可以做为某个键值对的值。
 
-#### 让 a 标签点击后执行一段代码
+### 让 a 标签点击后执行一段代码
 
 ```html
 <a href="javascript:void(0);" onclick="alert(1);">点击一</a> 
