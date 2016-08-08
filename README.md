@@ -1,4 +1,87 @@
 # 我的前端学习笔记
+### 2016.8.8
+
+### Span 标签
+
+span 标签用来为行内元素提供格式，它单独使用没有任何效果，只有配合 `id` 或 `class` 属性才能产生效果。比如:
+
+```html
+<p>My name is <span class="name">bestswifter</span>.</p>
+```
+
+#### CSS 选择器
+
+利用 CSS 文件可以对 HTML 代码进行精确的样式控制。最基础的两种写法如下:
+
+```css
+selector descendant_selector  {
+    font-size: 32px;
+}
+```
+
+选择器有三种写法:
+
+1. `tag_name`: 比如 `p`，`em` 等，用来为指定的标签提供格式
+2. `#id_value`，比如 `#bestswifter`，用来为所有 `id` 值为 `bestswifter` 的标签提供格式。
+3. `.class_name`，比如 `.coder`，用来为所有 `class` 值为 `coder` 的标签提供格式。
+
+选择器后面可以接派生选择器，两者可以组合成上下文环境，比如:
+
+```html
+<div id="welcome" class="step" data-x="-2000" data-y="-2500">
+    <p><span class="title"><b>Kt 的开发小站</b></span></p>
+</div>
+```
+
+对应的 CSS 代码就是: 
+
+```css
+#welcome .title {
+    font-size: 80px;
+    line-height: 150px;
+}
+```
+
+选择器后面还可以加上中括号，这叫做属性选择器，用来对标签的属性进行过滤，比如:
+
+```css
+a[target] { } /* 用来对所有具有属性 target 的 a 标签提供格式*/
+a[target="_blank"] { } /* 用来对所有具有属性 target 且值为 _blank 的 a 标签提供格式*/
+```
+
+中括号可以不依赖于选择器单独存在，表示一种通配，其中的内容也比较多，详见 [CSS 属性选择器详解](http://www.w3school.com.cn/css/css_selector_attribute.asp)。
+
+#### 用命令行进行搜索
+
+`grep` 用来搜索文件中的指定内容。基本语法如下:
+
+```bash
+grep '<content>'  <serach_path>
+# 例如: grep 'hello' ~/Desktop/article.txt
+```
+
+`grep` 命令有几个参数，作用如下:
+
+`-r` 表示递归搜索，使用这个参数时，路径不一定是文件，也可以是一个文件夹。
+`-c` 显示单词出现次数而不是出现的上下文内容。
+`-w` 只搜索单词，避免待搜索内容出现在某个单词中的情况。
+`-l` 显示出现的位置(行数)
+`--color` 用彩色显示搜索内容
+
+与 `grep` 类似的命令还有 `ggrep`，它是 `git grep` 的别名，和 `grep` 的区别在于，它只会搜索 git 索引的文件，而且可以指定在某个版本中搜索。
+
+如果要查询 commit 记录中的关键字，可以使用 `git log` 命令:
+
+1. 两天前的提交历史：git log --since=2.days
+2. 指定作者为"BeginMan"的所有提交:$ git log --author=BeginMan
+3. 指定关键字为“init”的所有提交：$ git log --grep=init
+4. 如指定提交者为"Jack"的所有提交：$ git log --committer=Jack
+
+#### npm 安装
+
+运行 `npm install` 进行本地安装之前，首先需要执行 `npm init`，它会引导我们生成一个 `package.json` 文件，这个文件中可以指定我们工程的 git 地址，项目依赖等信息。所以在发布的过程中，并不需要提交 `node_modules` 文件夹中的内容，别人下载下来后运行 `npm init` 即可。
+
+为了实现这一点，我们在安装第三方 package 时需要加上 `--save` 参数，表示把依赖关系写入到 `package.json` 文件中去。
 
 ### 2016.8.7
 
