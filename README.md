@@ -2,6 +2,16 @@
 
 记录小白学习前端的过程，如有错误，万望指正，感激不尽。
 
+## 2016.8.9
+
+### Nodejs 模块管理
+
+Nodejs 的模块可以分为两大类，原生模块和文件模块。原生模块是指 Nodejs 内置的模块，以二进制格式存储，加载速度快。文件模块为用户自己编写，结尾是 `.js` 或 `.node` 或 `.json` 格式的模块，利用 `fs` 模块加载，速度略慢。这两种模块都有缓存，所以重复加载不损失性能。
+
+当我们启动 nodejs 时，主模块的名字作为参数传递到 `_load` 方法中，所以不需要 require 主模块的名字。
+
+如果开发前后端一致的模块，需要注意将类库模块封装到一个闭包中，避免污染全局变量。
+
 ## 2016.8.8
 
 ### Span 标签
@@ -79,6 +89,8 @@ grep '<content>'  <serach_path>
 2. 指定作者为"BeginMan"的所有提交:$ git log --author=BeginMan
 3. 指定关键字为“init”的所有提交：$ git log --grep=init
 4. 如指定提交者为"Jack"的所有提交：$ git log --committer=Jack
+
+参考文章: [HowTo: Use grep Command](http://www.cyberciti.biz/faq/howto-use-grep-command-in-linux-unix/)、[git log常用命令以及技巧](http://www.cnblogs.com/BeginMan/p/3577553.html)。
 
 ### npm 安装
 
