@@ -2,6 +2,36 @@
 
 记录小白学习前端的过程，如有错误，万望指正，感激不尽。
 
+## 2016.8.16
+
+### Sails.js 
+
+Sails.js 是一个基于 Express 的 Server 框架，它采用了 MVC 模式。控制器主要负责转发与渲染界面，具体的逻辑由 Service 负责。
+
+View 层使用模板来实现，当 Controller 传来数据时即可渲染成 HTML。
+
+Model 层定义了数据的类型。
+
+[Node.js与Sails~项目结构与Mvc实现](http://www.cnblogs.com/lori/archive/2015/10/13/4874115.html)、[为什么使用Sails?](https://cnodejs.org/topic/553c7b4a1a6e36a27780ee65)
+
+## 2016.8.15
+
+### WebWorker
+
+WebWorker 是一个 HTML5 中在后台执行 JavaScript 代码的技术，这样不会阻塞 UI 界面。使用方法是在 JavaScript 中调用 `postMessage` 方法，然后在 HTML5 中的 JavaScript 中设置 `onmessage` 函数:
+
+```js
+var worker = new Worker("worker.js"); //创建一个Worker对象并向它传递将在新线程中执行的脚本的URL
+worker.postMessage("hello world");     //向worker发送数据
+worker.onmessage = function(evt){     //接收worker传过来的数据函数
+    console.log(evt.data);              //输出worker发送来的数据
+}
+```
+
+此时，`evt` 就是 `postMessage` 方法中的参数。
+
+参考文章: [Web Worker](http://blog.jobbole.com/30592/)
+
 ## 2016.8.14
 
 ### 构建工具
@@ -15,6 +45,8 @@
 构建工具出现的背景是，一个高性能网页的特点，通常不利于开发。比如为了节省网络请求，我们会建议把多个 CSS 文件合并在一起，然而对于开发者来说，这样显然不利于代码的组织与管理。如果用 import 的方式，虽然实现简单，但又会阻塞请求。
 
 因此，构建工具出现的目的就是，在不影响最终代码效果的同时，尽量简化工程师在开发过程中的步骤，从而提高效率。
+
+[Jade 模板简介](http://naltatis.github.io/jade-syntax-docs/)
 
 ## 2016.8.12
 
