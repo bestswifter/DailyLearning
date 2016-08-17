@@ -2,6 +2,52 @@
 
 记录小白学习前端的过程，如有错误，万望指正，感激不尽。
 
+## 2016.8.17
+
+### JSX 与 React
+
+React 是一个 Model 层的 JS 框架，利用 Virtual Dom 实现了响应式的编程。有了 React，我们就可以用 JS 来写 UI 代码了。
+
+用一句话来概括就是:“简单的 HTML 代码 + React 框架 + 基于 React 的 JS 代码 = 完整的网页”，比如下面这个例子:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="build/react.js"></script>
+    <script src="build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
+```
+
+JSX 是 JS 的拓展，或者说是一种预处理状态。JSX 在 JS 的基础上支持 XML 标签。Babel 是一个 JS 的编译器，通过 Babel 可以把带有 React 标签的 JSX 文件编译成 JS 代码。
+
+比如这段 JSX 代码:
+
+```js
+var myDivElement = <div className="foo" />;
+ReactDOM.render(myDivElement, document.getElementById('example'));
+```
+编译后的结果是:
+
+```js
+var MyComponent = React.createClass({/*...*/});
+var myElement = <MyComponent someProperty={true} />;
+ReactDOM.render(myElement, document.getElementById('example'));
+```
+
+由于 React 本质上还是一个 View 层的框架，所以在 Ejs、Jade  这样的 HTML 模板中也可以正常使用。实际上，React 也是一种模板，它完全可以独立于 Ejs 而单独使用。
+
 ## 2016.8.16
 
 ### Sails.js 
