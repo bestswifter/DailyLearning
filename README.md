@@ -2,6 +2,25 @@
 
 记录小白学习前端的过程，如有错误，万望指正，感激不尽。
 
+## 2016.8.29
+
+### HTML canvas
+
+这个元素类似于一块画布，由 JavaScript 在运行时动态绘制图形，比如:
+
+```html
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas>
+```
+
+```js
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = "#FF0000";
+ctx.fillRect(0,0,150,75);
+```
+
+这里的 `2d` 参数表示绘制二维图形。具体使用方法类似于 Core Graphics
+
 ## 2016.8.17
 
 ### JSX 与 React
