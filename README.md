@@ -4,9 +4,34 @@
 
 ## 2016.9.1
 
+### Grunt vs Gulp
+
 Gulp 和 Grunt 是两个用于构建的脚手架工程，前者更新，更快，基于 Node.js 的流机制， 进行内存中的操作。Grunt 更像是在语法和代码层面定义任务，由于要对文件进行 I/O 操作，速度略慢，但是胜在社区发展较好。
 
 在实际选择的时候，可以根据自己喜好进行选择，如果没有特殊原因不需要更换。
+
+### Webpack vs RequireJS
+
+[RequireJS](http://requirejs.org/) 是一个实现了 **AMD**([Asynchronous Module Definition](https://github.com/amdjs/amdjs-api) 规范的 JS 框架，用来解决浏览器端的模块依赖问题，缺点在于代码的书写与阅读比较困难，是一种妥协的实现。
+
+模块加载需要避免两种情况，不能每个文件单独请求，这样造成请求次数过多，也不宜所有文件一次请求，这样容易造成流量浪费。因此最合理的方式是按需动态加载，因此需要对所有模块进行静态分析，编译打包。实际上模块不只局限于 JavaScript 文件，CSS、图片、字体等都是模块，我们可以希望能使用 `require` 的方式进行加载:
+
+```js
+require("./style.css");
+require("./style.less");
+require("./template.jade");
+require("./image.png");
+```
+
+实际上 webpack 只能处理 JavaScript 模块，其他形式的模块需要通过 loader 转换器编程 webpack 可以处理的模块。
+
+安装 `webpack-dev-server` 这个模块后可以做到自动编译与自动刷新，只要运行:
+
+```c
+$ webpack-dev-server --inline --content-base ./
+```
+
+此后，保存对文件的时候会触发重编译。由于在本地启动了 node 服务器，因此还可以实现浏览器自动刷新功能。
 
 ## 2016.8.29
 
