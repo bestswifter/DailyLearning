@@ -8,7 +8,7 @@
 
 在某个空目录下，以下命令合法：
 
-```zsh
+```bash
 mkdir -p parent/child
 ```
 
