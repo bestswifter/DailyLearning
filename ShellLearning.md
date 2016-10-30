@@ -4,6 +4,26 @@
 
 ## 2016.10.30
 
+### bash 函数入门
+
+不用指定参数类型和个数，直接用 `$0`, `$1` 等来表示。`$#` 表示函数个数。
+
+如果想获得某个函数的执行结果（比如 pwd），可以写为 `pwd=$(pwd)`。
+
+以自定义的 `bsgrep` 函数为例演示：
+
+```bash
+bsgrep () {
+	if [ $# -eq 1 ]
+	then
+		grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -rna "$1" .
+	else
+		pwd=$(pwd)
+		grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -na "$1" "$pwd/$2"
+	fi
+}
+```
+
 ### grep 的使用（续）
 
 基本用法是 `grep content file` 或者 `grep -r content directory`。
