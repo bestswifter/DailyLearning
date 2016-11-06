@@ -80,7 +80,6 @@ bsgrep () {
 	then
 		grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -rna "$1" .
 	else
-		pwd=$(pwd)
 		grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn} -na "$1" "$pwd/$2"
 	fi
 }
@@ -97,7 +96,7 @@ bsgrep () {
 ### Shell 中的一些坑
 
 1. 声明变量的时候不能有空格，比如 `a=1` 合法，`a = 1` 不合法
-2. if 判断也要加空格，比如 `if [ $i -eq 1 ]`
+2. if 判断也要加空格，比如 `if [ $i -eq 1  ]`
 
 ### Bash 与 zsh 的冲突
 
@@ -140,5 +139,3 @@ mkdir -p parent/child
 ```
 
 表示可以创建一个多层次的目录，如果用 `mkdir` 会报错不存在 parent 目录
-
-
