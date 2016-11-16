@@ -2,6 +2,15 @@
 
 ## 2016.11.16
 
+### 解析 JSON
+
+```python
+import json
+f = open(fiel_name, 'r')
+json_content = json.loads(f.read())
+value = json_content[path1][path2]
+```
+
 ### 遍历数组
 
 除了 `for x in array` 这种写法以外，还可以使用：
