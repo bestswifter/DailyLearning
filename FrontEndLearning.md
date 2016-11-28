@@ -2,6 +2,30 @@
 
 记录小白学习前端的过程，如有错误，万望指正，感激不尽。
 
+## 2016-11-28
+
+### HTTP 协议的几个字段
+1. keep-alive：这个字段在 http 1.0 时代存在，可以复用 TCP 链接。HTTP 1.1 默认都是 keep-alive，不过由于历史原因，有时习惯性保留
+2. 对于持久连接，要用 content-length 告诉服务器数据是否传输结束，如果 length 太小会导致内容被截断，如果过大会导致 pending
+3. content-length 不适用于动态生成的内容，为了解决这个问题，我们使用 `Transfer-Encoding: chunked`, 表示把数据分块，每块都用 16 进制标记了内容的长度，如果为 0 说明到了末尾。
+
+比如：
+
+ ```js
+sock.write('HTTP/1.1 200 OK\r\n');
+sock.write('Transfer-Encoding: chunked\r\n');
+sock.write('\r\n');
+
+sock.write('b\r\n');
+sock.write('01234567890\r\n');
+
+sock.write('5\r\n');
+sock.write('12345\r\n');
+
+sock.write('0\r\n');
+sock.write('\r\n');
+```
+
 ## 2016.9.5
 
 ### 长连接、keep-alive、多路复用
