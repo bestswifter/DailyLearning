@@ -1,5 +1,11 @@
 # 我的 Python 学习笔记
 
+## 2016.11.28
+
+### __getattr__ and __setattr__
+
+这两个方法可以拦截对 python 类对象的读取和写入操作，相当于自定义了任意 `attribute` 的 setter 和 getter。
+
 ## 2016.11.25
 
 ### json
