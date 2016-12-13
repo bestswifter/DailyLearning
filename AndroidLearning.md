@@ -1,5 +1,11 @@
 # Android 学习日常总结
 
+## 2016-12-13
+
+### LinearLayout
+
+`match_parent` 表示与父视图保持一致，`wrap_content` 表示能包裹住内容。如果设置 `weight`，则表示权重，weight 越大，占据的比例越大。
+
 ## 2016-12-09
 
 ### AS 快捷键（2）
