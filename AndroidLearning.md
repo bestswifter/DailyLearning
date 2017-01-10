@@ -1,5 +1,14 @@
 # Android 学习日常总结
 
+## 2017-01-10
+
+### AS 快捷键（3）
+
+* 显示某个单词的所有出现：Command + Caps Lock + F7
+* 隐藏/显示所有面板：Command + Shift + F12
+* 回到父类的方法定义中：Command + U
+* 不离开当前页面， 查看某个类的定义：Command + Y
+
 ## 2016-12-13
 
 ### LinearLayout
