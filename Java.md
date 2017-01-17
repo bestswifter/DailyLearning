@@ -1,5 +1,12 @@
 # Java 学习日记
 
+## 2017-01-17
+
+### 字符串与数字互转
+
+* 字符串转数字: Integer.parseInt(string)，注意 Try-Catch
+* 数字转字符串：String.valueOf(int)
+
 ## 2017-01-09
 
 ### @override
