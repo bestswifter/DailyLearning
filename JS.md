@@ -1,5 +1,43 @@
 # 我的 JavaScript 学习笔记
 
+## 2017-01-24
+
+### var 和 let
+
+var 的作用域是它所定义的函数，而 let 则是所处的最近一个 block 块，比如： 
+
+```js
+for(var i = 1; i < 6; i++) {
+      document.getElementById('my-element' + i).addEventListener('click', function() { alert(i) })
+}
+```
+
+此时的 var i 在 for 循环内部和外部都有效，它的作用域是最近的一个 function（或者 global），因此 alert(i) 中捕获的是同一个变量 i（虽然 i 一直在变），这就导致了最终所有点击事件输出的 i 的值都一样。
+
+解决方案是包一层函数：
+
+```javascript
+function createfunc(i) {
+    return function() { alert(i) };
+}
+
+for(var i = 1; i < 6; i++) {
+    document.getElementById('my-element' + i).addEventListener('click', createfunc(i))
+}
+```
+
+这样的好处是 i 会被 `createfunc` 捕获成局部变量，再被 block 捕获，因此每个 i 的值都会不一样。
+
+如果是在 node.js 或者 babel 环境下写 js，就可以使用 ES6 最新的 let 关键字。let 关键字会保证 i 的作用于仅限于 for 循环（这也是符号我们的一般认识）
+
+这时候所有的
+
+## 2017-01-20
+
+### Atom 更新插件报错 Permission Denied
+
+执行：`sudo chown -R `whoami` ~/.atom`
+
 ## 2017-01-19
 
 ### undefined 和 null

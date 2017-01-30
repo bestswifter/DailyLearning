@@ -2,6 +2,28 @@
 
 记录小白学习前端的过程，如有错误，万望指正，感激不尽。
 
+## 2017-01-30
+
+### XSS
+
+XSS 的中文名称叫跨站脚本攻击，本来应该写作 CSS(Cross Site Script)，为了和级联样式表(Cascading Style Sheets)区分开，故而改名。
+
+XSS 可以理解为客户端的代码注入(类似于 SQL 注入)，攻击者首先攻击有漏洞的网站，这些网站成为有害脚本的载体。当受害者浏览受害网站时，就会被迫执行预先设置好的病毒脚本。
+
+XSS 的攻击原理是，当 Server 拼接 HTML 时，要展示的内容可能并不是普通字符串，而是一些精心构造好的代码，比如：
+
+```html
+<html>
+    <body>
+        content
+    </body>
+</html>
+```
+
+这里的 content 可以是要展示的内容，也可以是 `<script>alert("XSS");</script>`，如果是后者，那么用户浏览时就会在不知不觉中执行 JS 代码。
+
+也正因为如此，React 禁止动态生成 HTML，也就是说在 render 方法中，我们一般用 JSX 来描述返回内容，JSX 中无法使用外部变量作为节点(属性还是可以用变量的)。如果一定要这么做，需要用 `dangerouslySetInnerHTML` 来包装
+
 ## 2016-11-28
 
 ### Content-length and chunked 
