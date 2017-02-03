@@ -1,5 +1,25 @@
 # 我的 JavaScript 学习笔记
 
+## 2017-02-03
+
+### seal
+
+Object.seal(object) 等价于 Object.preventExtensions(object) 并且把所有已有属性的 configurable 设置为 false，这样被 seal 的对象不仅无法新增属性，也无法配置和删除已有属性（依然可修改）。
+
+### freeze
+
+Object.freeze(object) 等价于 Object.seal(object) 并且把所有属性标记为不可修改,是一种最高级别的不可变性。不过这些不可变性都不会影响到对象的属性的可变性，需要递归设置。
+
+### hasOwnProperty
+
+利用 hasOwnProperty 可以判断对象是否包含某个属性，这个查找不包含原型链，而 in 运算符则会沿着原型链向上查找。如果对象不是 Object 的实例，则最好使用 Object.prototype.hasOwnProperty.call(myObject,"a")
+
+## 2017-02-02
+
+### call
+
+function.call(thisArg, arg1, ..., argn) 其实等价于 thisArg.function(arg1, ..., argn) 区别在于使用 call 会让函数体中的 this 变成 `thisArg`
+
 ## 2017-01-24
 
 ### var 和 let
@@ -72,4 +92,4 @@ JS 中的 this 表示当前函数的上下文，但是 JS 调用函数一共有�
 
 总的来说，需要判断 this 时，问问自己：“这个函数是怎么调用的？”，如果是箭头函数，问问自己：“这个函数是在哪里定义的？”
 
-
+this 其实更多的代表着上下文，所以也可以显式的定义一个 context 参数，不过这样 API 显得臃肿，不够优雅。
