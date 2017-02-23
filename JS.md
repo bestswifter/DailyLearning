@@ -14,6 +14,8 @@ Object.freeze(object) 等价于 Object.seal(object) 并且把所有属性标记�
 
 利用 hasOwnProperty 可以判断对象是否包含某个属性，这个查找不包含原型链，而 in 运算符则会沿着原型链向上查找。如果对象不是 Object 的实例，则最好使用 Object.prototype.hasOwnProperty.call(myObject,"a")
 
+for ... in 语法也会把整个原型链上所有可遍历的 key 拿出来。
+
 ## 2017-02-02
 
 ### call
