@@ -1,5 +1,14 @@
 # Java 学习日记
 
+## 2017-03-16
+
+### 字符串截取
+
+```java
+String s = "abcdefghijklmno";
+String t = s.substring(0, 10); // 前十个字符
+```
+
 ## 2017-01-17
 
 ### 字符串与数字互转
