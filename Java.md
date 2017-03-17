@@ -1,5 +1,18 @@
 # Java 学习日记
 
+## 2017-03-17
+
+### for循环
+
+```java
+String[] names = new String[] {"Zoe", "Bob", "Charlie", "Alex"};
+for(String name : names) {
+    System.out.println(name);   
+}
+```
+
+使用 foreach 语法不改变顺序
+
 ## 2017-03-16
 
 ### 字符串截取
