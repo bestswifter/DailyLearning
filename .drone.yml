@@ -25,6 +25,23 @@ steps:
   depends_on:
   - greeting
   - test
+  - sleep 5
+  
+- name: down1
+  image: golang:1.12
+  commands:
+  - echo "down stream job 1"
+  depends_on:
+  - final
+  - greeting
+
+- name: down2
+  image: golang:1.12
+  commands:
+  - echo "down stream job 2"
+  depends_on:
+  - final
+  - test
   
 ---
 kind: pipeline
