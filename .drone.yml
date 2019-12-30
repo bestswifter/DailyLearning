@@ -7,5 +7,11 @@ steps:
 - name: greeting
   image: golang:1.12
   commands:
-  - go build
-  - go test
+  - env
+  - ls
+  
+- name: test
+  image: golang:1.12
+  commands:
+  - pwd
+  - whoami
