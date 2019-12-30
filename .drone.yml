@@ -15,3 +15,11 @@ steps:
   commands:
   - pwd
   - whoami
+
+- name: final
+  image: golang:1.12
+  commands:
+  - go --verision
+  depends_on:
+  - greeting
+  - final
