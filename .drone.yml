@@ -22,10 +22,10 @@ steps:
   image: golang:1.12
   commands:
   - echo "hello"
+  - sleep 5
   depends_on:
   - greeting
   - test
-  - sleep 5
   
 - name: down1
   image: golang:1.12
