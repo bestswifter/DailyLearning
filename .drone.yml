@@ -1,7 +1,7 @@
 ---
 kind: pipeline
 type: docker
-name: default
+name: pipeline1
 
 steps:
 - name: greeting
@@ -19,7 +19,16 @@ steps:
 - name: final
   image: golang:1.12
   commands:
-  - go --verision
-  depends_on:
-  - greeting
-  - final
+  - echo "hello"
+  
+  
+---
+kind: pipeline
+type: docker
+name: pipeline2
+  
+steps:
+- name: foo
+  image: golang:1.12
+  commands:
+  - echo "foo"
