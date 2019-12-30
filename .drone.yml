@@ -20,7 +20,9 @@ steps:
   image: golang:1.12
   commands:
   - echo "hello"
-  
+  depends_on:
+  - greeting
+  - test
   
 ---
 kind: pipeline
