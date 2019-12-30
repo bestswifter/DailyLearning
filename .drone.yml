@@ -9,12 +9,14 @@ steps:
   commands:
   - env
   - ls
+  - sleep 10
   
 - name: test
   image: golang:1.12
   commands:
   - pwd
   - whoami
+  - sleep 5
 
 - name: final
   image: golang:1.12
