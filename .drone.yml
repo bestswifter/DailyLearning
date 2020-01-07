@@ -7,16 +7,14 @@ steps:
 - name: greeting
   image: golang:1.12
   commands:
-  - env
   - ls
-  - sleep 10
+  - touch test.sh
   
 - name: test
   image: golang:1.12
   commands:
   - pwd
-  - whoami
-  - sleep 5
+  - ls
 
 - name: final
   image: golang:1.12
